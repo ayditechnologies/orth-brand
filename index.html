@@ -1,0 +1,3365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORTH Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@1,400&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'Cocogoose';
+      src: url('https://raw.githubusercontent.com/ayditechnologies/orth/ayditechnologies-orth-logo/Cocogoose-Pro-Semilight.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000;
+      --white: #fff;
+      --font-display: 'Cocogoose', sans-serif;
+      --font-serif: 'Source Serif 4', serif;
+      --font-body: 'Nunito Sans', sans-serif;
+      --border: rgba(255,255,255,0.09);
+      --card-border: #1a1a1a;
+      --muted: rgba(255,255,255,0.60);
+
+      /* ── Ink ── */
+      --ink-950: #0c0f13; --ink-900: #141719; --ink-800: #1e2226; --ink-700: #2e3337;
+      --ink-600: #404549; --ink-500: #585d62; --ink-400: #757a7f; --ink-300: #979b9f;
+      --ink-200: #bcbfc3; --ink-100: #dcdfe2; --ink-50: #f0f2f4;
+
+      /* ── Sage ── */
+      --sage-950: #1c2319; --sage-900: #2f3c2b; --sage-800: #43553e; --sage-700: #536a4c;
+      --sage-600: #647f5d; --sage-500: #85aa7b; --sage-400: #9ebb96; --sage-300: #b6ccb0;
+      --sage-200: #cce0c8; --sage-100: #e6f0e4; --sage-50: #f5faf4;
+
+      /* ── Stone ── */
+      --stone-950: #201d19; --stone-900: #2f2b26; --stone-800: #46413a; --stone-700: #5d564d;
+      --stone-600: #6d675f; --stone-500: #7d7871; --stone-400: #9e9a94; --stone-300: #bebbb8;
+      --stone-200: #d4d2cf; --stone-100: #e8e7e5; --stone-50: #f5f4f3;
+
+      /* ── Red ── */
+      --red-950: oklch(0.15 0.035 22); --red-900: oklch(0.22 0.060 22); --red-800: oklch(0.31 0.105 22);
+      --red-700: oklch(0.41 0.148 22); --red-600: oklch(0.51 0.175 22); --red-500: oklch(0.61 0.195 22);
+      --red-400: oklch(0.70 0.160 22); --red-300: oklch(0.79 0.120 22); --red-200: oklch(0.87 0.075 22);
+      --red-100: oklch(0.93 0.038 22); --red-50: oklch(0.97 0.015 22);
+
+      /* ── Amber ── */
+      --amber-950: oklch(0.15 0.035 72); --amber-900: oklch(0.22 0.058 72); --amber-800: oklch(0.32 0.092 72);
+      --amber-700: oklch(0.44 0.130 72); --amber-600: oklch(0.57 0.155 72); --amber-500: oklch(0.73 0.170 72);
+      --amber-400: oklch(0.82 0.135 72); --amber-300: oklch(0.88 0.095 72); --amber-200: oklch(0.93 0.055 72);
+      --amber-100: oklch(0.96 0.025 72); --amber-50: oklch(0.99 0.010 72);
+
+      /* ── Green ── */
+      --green-950: oklch(0.15 0.040 148); --green-900: oklch(0.22 0.068 148); --green-800: oklch(0.31 0.112 148);
+      --green-700: oklch(0.42 0.158 148); --green-600: oklch(0.54 0.188 148); --green-500: oklch(0.65 0.205 148);
+      --green-400: oklch(0.75 0.168 148); --green-300: oklch(0.83 0.120 148); --green-200: oklch(0.90 0.072 148);
+      --green-100: oklch(0.95 0.035 148); --green-50: oklch(0.98 0.013 148);
+
+      /* ── Blue ── */
+      --blue-950: oklch(0.14 0.028 232); --blue-900: oklch(0.21 0.052 232); --blue-800: oklch(0.30 0.092 232);
+      --blue-700: oklch(0.40 0.138 232); --blue-600: oklch(0.51 0.170 232); --blue-500: oklch(0.62 0.185 232);
+      --blue-400: oklch(0.72 0.148 232); --blue-300: oklch(0.81 0.108 232); --blue-200: oklch(0.89 0.065 232);
+      --blue-100: oklch(0.94 0.032 232); --blue-50: oklch(0.98 0.012 232);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 62px;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(0,0,0,0.80);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .nav-logo { cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-links span { cursor: pointer;
+      text-decoration: none;
+      color: rgba(255,255,255,0.80);
+      font-size: 15px;
+      font-weight: 500;
+      font-family: var(--font-body);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links span:hover { color: var(--white); }
+    .nav-links span.active { color: var(--white); }
+
+    /* Right side spacer · mirrors logo width so links stay truly centered */
+    .nav-right {
+      width: 30px;
+      flex-shrink: 0;
+    }
+
+    /* ─── PAGE SHELL ── */
+    .page {
+      padding-top: 62px;
+      min-height: 100vh;
+    }
+
+    /* ─── PAGE SYSTEM ── */
+    .pg { display: none; }
+    .pg.active { display: block; }
+
+    /* ─── BRAND HOME ── */
+    .brand-hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 62px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .brand-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('https://raw.githubusercontent.com/ayditechnologies/orth-brand/main/fujiphilm-z9Cvs0xNsD4-unsplash.jpg') center 30% / cover no-repeat;
+    }
+
+    .brand-hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        #000 0%,
+        rgba(0,0,0,0.18) 30%,
+        rgba(0,0,0,0.18) 68%,
+        #000 100%
+      );
+    }
+
+    .brand-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 80px 80px;
+    }
+
+    .brand-hero-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 6.5vw, 88px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: rgba(255,255,255,1.0);
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+
+    .brand-hero-content h1 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .brand-hero-content p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.60);
+      max-width: 420px;
+      line-height: 1.7;
+    }
+
+    .brand-body {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 160px 80px 200px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 120px;
+      align-items: start;
+    }
+
+    .brand-body-heading {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.5vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.12;
+    }
+
+    .brand-body-heading em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .brand-body-text {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .brand-body-text p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .brand-pages-list {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .brand-page-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .brand-page-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+
+    .brand-page-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      transition: color 0.2s;
+    }
+
+    .brand-page-item:hover .brand-page-name { color: var(--white); }
+
+    .brand-page-arrow {
+      font-size: 16px;
+      color: rgba(255,255,255,0.60);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .brand-page-item:hover .brand-page-arrow {
+      color: rgba(255,255,255,0.60);
+      transform: translateX(4px);
+    }
+
+
+    .scale-note {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.6;
+      margin-top: 10px;
+      padding-left: 14px;
+      border-left: 2px solid rgba(255,255,255,0.10);
+    }
+
+
+    /* ─── COLOR PAGE ── */
+
+    .color-page-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 62px 80px 0;
+    }
+
+    .color-hero {
+      padding: 120px 0 100px;
+    }
+
+    .color-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      margin-bottom: 24px;
+    }
+
+    .color-hero h1 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .color-hero-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .color-meta {
+      display: flex;
+      gap: 48px;
+      margin-top: 52px;
+    }
+
+    .color-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .color-meta-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+    }
+
+    .color-meta-value {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 600;
+      color: rgba(255,255,255,1.0);
+    }
+
+    /* ─── SCALE GROUPS ── */
+    .scale-group {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    .scale-group + .scale-group {
+      margin-top: 280px;
+    }
+
+    .group-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 100px;
+    }
+
+    .scales {
+      display: flex;
+      flex-direction: column;
+      gap: 160px;
+    }
+
+    /* ─── SCALE ── */
+    .scale-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .scale-name {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.4vw, 34px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: rgba(255,255,255,1.0);
+    }
+
+    .scale-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.60);
+    }
+
+    .scale-method {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      margin-left: auto;
+    }
+
+    .scale-desc {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+      max-width: 600px;
+      margin-bottom: 56px;
+    }
+
+    /* ─── SWATCHES ── */
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(11, 1fr);
+      gap: 20px;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .swatch-block {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 8px;
+      position: relative;
+      transition: transform 0.15s ease;
+      cursor: default;
+    }
+
+    .swatch-block:hover { transform: translateY(-4px); }
+
+
+
+    .swatch-info { display: flex; flex-direction: column; gap: 3px; }
+
+    .swatch-step {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+    }
+
+    .swatch-val {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.3;
+    }
+
+    .role-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #7ec8a0;
+      margin-top: 2px;
+    }
+
+    /* ─── USAGE ROW ── */
+
+
+
+
+
+
+    .usage-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-top: 16px;
+    }
+
+    .usage-cell {
+      padding: 14px 16px;
+      border-radius: 6px;
+      background: #080808;
+      border: 1px solid #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .usage-role {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .usage-stop {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .color-page-end { padding-bottom: 200px; }
+
+    /* ─── FOOTER ── */
+    footer {
+      background: var(--black);
+      padding: 200px 80px 52px;
+      max-width: 100%;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 80px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.60);
+      margin-top: 10px;
+      font-weight: 400;
+    }
+
+    .footer-col-head {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.60);
+      font-size: 13.5px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.60);
+    }
+
+
+    /* ─── TYPE PAGE ── */
+
+    .type-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 62px 80px 0;
+    }
+
+    .type-hero {
+      padding: 120px 0 160px;
+    }
+
+    .type-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 28px;
+    }
+
+    .type-hero h1 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .type-hero-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    /* Font sections */
+    .type-section {
+      padding-bottom: 175px;
+    }
+
+    .type-section-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 64px;
+    }
+
+    .type-font-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 120px;
+      align-items: start;
+      margin-bottom: 100px;
+    }
+
+    .type-font-name {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 20px;
+    }
+
+    .type-font-name em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .type-font-role {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .type-font-rules {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .type-rule {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      gap: 16px;
+    }
+
+    .type-rule:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .type-rule-dot {
+      color: rgba(255,255,255,0.60);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Specimens */
+    .type-specimens {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .type-specimen {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .type-specimen-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.80);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Source Serif special */
+    .serif-context {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-top: 12px;
+    }
+
+    .serif-example {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .serif-example-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Nunito weight row */
+    .nunito-weights {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 64px;
+    }
+
+    .nunito-weight-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 120px;
+      align-items: baseline;
+      gap: 32px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nunito-weight-row:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .nunito-weight-num {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+    }
+
+    .nunito-weight-roles {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+    }
+
+    /* Type scale table */
+    .type-scale-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .type-scale-table th {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.60);
+      padding: 0 0 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .type-scale-table th:not(:first-child) { padding-left: 24px; }
+
+    .type-scale-table td {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: top;
+    }
+
+    .type-scale-table td:not(:first-child) { padding-left: 24px; }
+
+    .tst-role {
+      color: rgba(255,255,255,1.0);
+      font-weight: 500;
+    }
+
+    .tst-font {
+      color: rgba(255,255,255,0.60);
+      font-size: 13px;
+    }
+
+    .tst-group th {
+      padding-top: 40px;
+    }
+
+    .tst-group-label td {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.60);
+      padding-top: 20px;
+      padding-bottom: 4px;
+      border-bottom: none;
+    }
+
+    /* In context */
+    .type-context-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 120px;
+      align-items: center;
+    }
+
+    .context-scene {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .context-eyebrow {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.80);
+    }
+
+    .context-headline {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      color: rgba(255,255,255,1.0);
+    }
+
+    .context-headline em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .context-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    .context-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .context-body {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    .context-meta {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.80);
+    }
+
+    .context-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .legend-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .legend-font {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,1.0);
+    }
+
+    .legend-roles {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    /* Constraints */
+    .type-constraints {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .constraint-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: center;
+    }
+
+    .constraint-item:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .constraint-x {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,1.0);
+    }
+
+    .constraint-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+      max-width: 540px;
+    }
+
+    .constraint-sub {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.80);
+      margin-top: 3px;
+    }
+
+
+    .type-centered {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+
+    /* ─── LOGO PAGE ── */
+
+    .logo-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    /* Hero */
+    .logo-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 80px;
+    }
+
+    .logo-hero-lockup {
+      width: min(640px, 80vw);
+      opacity: 1;
+    }
+
+    .logo-hero-sub {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      margin-top: 48px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Section */
+    .logo-section {
+      padding-bottom: 160px;
+    }
+
+    .logo-section-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 64px;
+    }
+
+    /* Anatomy */
+    .logo-anatomy {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 80px;
+    }
+
+    .logo-anatomy-item-name {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.4vw, 34px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 14px;
+    }
+
+    .logo-anatomy-item-desc {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    /* Mark grid */
+    .logo-mark-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .logo-mark-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .logo-mark-stage {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      padding: 32px;
+    }
+
+    .logo-mark-stage.on-dark { background: #0c0f13; }
+    .logo-mark-stage.on-light { background: #f5f4f3; }
+
+    .logo-mark-stage img {
+      width: 60%;
+      height: 60%;
+      object-fit: contain;
+    }
+
+    .logo-mark-name {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 4px;
+    }
+
+    .logo-mark-use {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.6;
+    }
+
+    /* Lockup grid */
+    .logo-lockup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 32px;
+      row-gap: 64px;
+    }
+
+    .logo-lockup-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .logo-lockup-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      padding: 52px 48px;
+      min-height: 180px;
+    }
+
+    .logo-lockup-stage.on-dark { background: #0c0f13; }
+    .logo-lockup-stage.on-light { background: #f5f4f3; }
+
+    .logo-lockup-stage img {
+      height: 72px;
+      object-fit: contain;
+    }
+
+    .logo-lockup-name {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 4px;
+    }
+
+    .logo-lockup-use {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.6;
+    }
+
+    /* Clearspace rules */
+    .logo-rules-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 680px;
+    }
+
+    .logo-rule-row {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo-rule-row:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .logo-rule-key {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      flex-shrink: 0;
+      width: 160px;
+      padding-top: 1px;
+    }
+
+    .logo-rule-val {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    /* Usage rules */
+    .logo-usage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .logo-usage-col-head {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 32px;
+    }
+
+    .logo-usage-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .logo-usage-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: center;
+    }
+
+    .logo-usage-item:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .logo-usage-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-usage-icon.ok  { color: rgba(255,255,255,1.0); }
+    .logo-usage-icon.no  { color: rgba(255,255,255,1.0); }
+
+    .logo-usage-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+
+
+    /* ─── COMPOSITION PAGE ── */
+
+    .comp-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 62px 80px 0;
+    }
+
+    .comp-hero {
+      padding: 120px 0 140px;
+    }
+
+    .comp-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 28px;
+    }
+
+    .comp-hero h1 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .comp-hero-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    /* Principles — hidden, distributed into image grid as text cards */
+    .comp-principle-card {
+      border-radius: 6px;
+      background: transparent;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .comp-principle-text { display: flex; flex-direction: column; gap: 0; }
+
+    .comp-principle-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.60);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .comp-principle-title {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 1.8vw, 26px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 10px;
+    }
+
+    .comp-principle-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .comp-principle-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    /* Section labels + intros */
+    .comp-section-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 48px;
+    }
+
+    .comp-section-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 120px;
+      align-items: start;
+      margin-bottom: 80px;
+    }
+
+    .comp-section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      color: rgba(255,255,255,1.0);
+    }
+
+    .comp-section-heading em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .comp-section-desc {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    /* Layout blocks */
+    .comp-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-bottom: 160px;
+    }
+
+    .comp-block {
+      display: grid;
+      gap: 20px;
+    }
+
+    .comp-block.mb-tight    { margin-bottom: 20px; }
+    .comp-block.mb-normal   { margin-bottom: 60px; }
+    .comp-block.mb-spacious { margin-bottom: 120px; }
+
+    .comp-block.cols-half  { grid-template-columns: 1fr 1fr; }
+    .comp-block.cols-asymL { grid-template-columns: 2fr 1fr; }
+    .comp-block.cols-asymR { grid-template-columns: 1fr 2fr; }
+    .comp-block.cols-three { grid-template-columns: repeat(3, 1fr); }
+
+    .comp-block img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+    }
+
+        /* Social strip */
+    .comp-social {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding-bottom: 160px;
+    }
+
+    .comp-social img { width: 100%; display: block; border-radius: 6px; }
+
+    /* Field */
+    .comp-field {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding-bottom: 200px;
+    }
+
+    .comp-field img { width: 100%; display: block; border-radius: 6px; }
+
+
+    .logo-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 48px;
+      padding: 12px 24px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 100px;
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.80);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .logo-download-btn:hover { background: rgba(255,255,255,0.12); color: rgba(255,255,255,1.0); }
+    .logo-download-btn.loading { opacity: 0.5; pointer-events: none; }
+
+
+
+    .narrative-img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .narrative-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 62px 80px 200px;
+    }
+
+    /* ─── NARRATIVE PAGE ── */
+    .narrative-hero {
+      padding: 120px 0 120px;
+      max-width: 860px;
+    }
+
+    .narrative-hero-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+
+    .narrative-headline {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 24px;
+    }
+
+    .narrative-subhead {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    .narrative-body {
+      max-width: 680px;
+      padding-bottom: 200px;
+    }
+
+    .narrative-location {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 80px 0 48px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .narrative-person {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.4vw, 32px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: rgba(255,255,255,1.0);
+      margin: 80px 0 32px;
+    }
+
+    .narrative-person em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1em;
+    }
+
+    .narrative-p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .narrative-quote {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      padding-left: 24px;
+      border-left: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .narrative-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 80px 0;
+    }
+
+    .narrative-closing-label {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.4vw, 32px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: rgba(255,255,255,1.0);
+      margin: 80px 0 32px;
+    }
+
+    .narrative-closing-label em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1em;
+    }
+
+    /* ─── PLACEHOLDER PAGES ── */
+    .pg-placeholder {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px;
+      text-align: center;
+    }
+
+    .pg-placeholder-inner {
+      max-width: 900px;
+    }
+
+    .pg-placeholder-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 66px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 28px;
+    }
+
+    .pg-placeholder-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .pg-placeholder-sub {
+      font-family: var(--font-body);
+      font-size: clamp(16px, 1.8vw, 20px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.6;
+    }
+
+    /* ─── TONE PAGE ── */
+
+    .tone-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 62px 80px 0;
+    }
+
+    .tone-hero { padding: 120px 0 140px; }
+
+    .tone-hero-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 40px;
+    }
+
+    .tone-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      max-width: 860px;
+      color: rgba(255,255,255,1.0);
+    }
+
+    .tone-hero h1 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .tone-governing {
+      margin-top: 48px;
+      font-family: var(--font-body);
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.4;
+      max-width: 560px;
+    }
+
+    .tone-slogans {
+      padding: 0 0 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .slogan-line {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      color: rgba(255,255,255,1.0);
+    }
+
+    .slogan-line em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .slogan-line.muted { color: rgba(255,255,255,0.60); }
+
+    .tone-section-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 64px;
+    }
+
+    .tone-principles {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .tone-principle {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 80px;
+    }
+
+    .tp-num {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 12px;
+    }
+
+    .tp-name {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.4vw, 34px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 12px;
+    }
+
+    .tp-def {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    .tp-right {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .tp-example {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .tp-example:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+
+    
+
+    .tp-example.wrong .tp-example-icon { color: rgba(255,255,255,1.0); }
+    .tp-example.right .tp-example-icon  { color: rgba(255,255,255,1.0); }
+
+    .tp-example-icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .tp-example-text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.80);
+    }
+
+    .tone-axes {
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    .tone-axis {
+      display: grid;
+      grid-template-columns: 180px 1fr 180px;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .axis-label-left {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      text-align: right;
+    }
+
+    .axis-label-right {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+    }
+
+    .axis-track {
+      height: 1px;
+      background: rgba(255,255,255,0.10);
+      position: relative;
+    }
+
+    .axis-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #7ec8a0;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .axis-annotation {
+      position: absolute;
+      top: 14px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      white-space: nowrap;
+      transform: translateX(-50%);
+    }
+
+    .tone-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .check-item:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .check-num {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      flex-shrink: 0;
+      width: 24px;
+    }
+
+    .check-q {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,1.0);
+      flex: 1;
+    }
+
+    .check-a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.60);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .aydi-intro {
+      padding: 140px 0 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 120px;
+      align-items: start;
+    }
+
+    .aydi-intro-heading {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      color: rgba(255,255,255,1.0);
+    }
+
+    .aydi-intro-heading em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1em;
+    }
+
+    .aydi-intro-body {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    .aydi-attrs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 48px;
+      padding: 80px 0;
+    }
+
+    .aydi-attr-name {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.4vw, 34px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: rgba(255,255,255,1.0);
+      margin-bottom: 12px;
+    }
+
+    .aydi-attr-def {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    .aydi-domains {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-bottom: 80px;
+    }
+
+    .aydi-domain {
+      display: grid;
+      grid-template-columns: 160px 1fr 1fr;
+      gap: 48px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+
+    .aydi-domain:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .domain-name {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.60);
+      padding-top: 2px;
+    }
+
+    .domain-col-head {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 6px;
+    }
+
+    .domain-approach {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.6;
+    }
+
+    .domain-avoid {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.6;
+    }
+
+    .tone-closing {
+      padding: 120px 0 200px;
+      text-align: center;
+    }
+
+    .tone-closing-rule {
+      font-family: var(--font-body);
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.60);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .tone-closing-rule strong {
+      color: rgba(255,255,255,1.0);
+      font-weight: 700;
+    }
+
+  
+    .mobile-block {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      text-align: center;
+    }
+    .mobile-block-title {
+      font-family: 'Cocogoose', sans-serif;
+      font-size: clamp(28px, 8vw, 42px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .mobile-block-title em {
+      font-family: 'Source Serif 4', serif;
+      font-style: italic;
+    }
+    .mobile-block-sub {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 15px;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.7;
+      max-width: 320px;
+    }
+    @media (max-width: 768px) {
+      .mobile-block { display: flex; }
+      body > *:not(.mobile-block) { display: none !important; }
+    }
+
+</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <meta property="og:title" content="ORTH Brand" />
+  <meta property="og:description" content="The reference for how ORTH looks, speaks, and shows up in the world." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/ayditechnologies/orth-brand/main/fujiphilm-z9Cvs0xNsD4-unsplash.jpg" />
+  <meta property="og:url" content="https://orth-brand.vercel.app" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+
+<div class="mobile-block">
+  <div class="mobile-block-title">Built for<br><em>larger screens.</em></div>
+  <p class="mobile-block-sub">Open this on a laptop or desktop to access the full experience.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ NAV -->
+<nav>
+  <span class="nav-logo" data-page="brand" style="cursor:pointer;">
+    <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Logo-SageonDark.svg" width="30" height="30" alt="ORTH" />
+  </span>
+  <ul class="nav-links">
+    <li><span data-page="brand">Brand</span></li>
+    <li><span data-page="narrative">Narrative</span></li>
+    <li><span data-page="logo">Logo</span></li>
+    <li><span data-page="color">Color</span></li>
+    <li><span data-page="type">Type</span></li>
+    <li><span data-page="composition">Composition</span></li>
+    <li><span data-page="imagery">Imagery</span></li>
+    <li><span data-page="interface">Interface</span></li>
+    <li><span data-page="tone">Tone</span></li>
+  </ul>
+  <div class="nav-right"></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ BRAND HOME -->
+<div class="pg active" id="pg-brand">
+
+  <div class="brand-hero">
+    <div class="brand-hero-bg"></div>
+    <div class="brand-hero-content">
+      <h1>ORTH<br><em>Brand</em></h1>
+      <p>The reference for how ORTH looks, speaks, and shows up in the world.</p>
+    </div>
+  </div>
+
+  <div class="brand-body">
+    <div class="brand-body-heading">
+      Every decision<br>here is <em>deliberate.</em>
+    </div>
+    <div class="brand-body-text">
+      <p>ORTH is built for growers who make consequential decisions every day. The brand that represents it has to earn the same trust through clarity, restraint, and consistency. This is where that system lives.</p>
+      <p>Color scales, typographic choices, logo usage, voice principles, and the assets built from them are all documented here. Each section explains not just what the system is, but why it works the way it does.</p>
+      <p>Start anywhere. Everything connects.</p>
+      <div class="brand-pages-list">
+        <div class="brand-page-item" data-page="logo"><span class="brand-page-name">Start from the logo</span><span class="brand-page-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;"><polyline points="5,2 10,7 5,12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ COLOR PAGE -->
+<div class="pg" id="pg-color">
+<div class="color-page-wrap">
+
+  <!-- HERO -->
+  <div class="color-hero">
+    <h1>Color, built<br>for the <em>field.</em></h1>
+    <p class="color-hero-sub">Seven scales built for dark-mode first. Three brand scales in hex. Four semantic scales in OKLCH for perceptual uniformity and P3 wide-gamut readiness.</p>
+    <div class="color-meta">
+      <div class="color-meta-item">
+        <span class="color-meta-label">Scales</span>
+        <span class="color-meta-value">7</span>
+      </div>
+      <div class="color-meta-item">
+        <span class="color-meta-label">Values</span>
+        <span class="color-meta-value">77</span>
+      </div>
+      <div class="color-meta-item">
+        <span class="color-meta-label">Brand</span>
+        <span class="color-meta-value">Hex · locked</span>
+      </div>
+      <div class="color-meta-item">
+        <span class="color-meta-label">Semantic</span>
+        <span class="color-meta-value">OKLCH · locked</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRAND SCALES -->
+  <div class="scale-group">
+    <div class="group-label">Brand scales</div>
+    <div class="scales">
+
+      <!-- INK -->
+      <div class="scale">
+        <div class="scale-head">
+          <span class="scale-name">Ink</span>
+          <span class="scale-tag">Primary Dark</span>
+        </div>
+        <p class="scale-desc">Cool-tinted near-black. Backgrounds, depth layers, UI structure, and all text. The B channel is highest of the three primaries, carrying through to the Blue scale.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-block anchor" style="background:#0c0f13;"></div><div class="swatch-info"><span class="swatch-step">950</span><span class="swatch-val">#0c0f13</span><span class="role-badge">Primary</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#141719;"></div><div class="swatch-info"><span class="swatch-step">900</span><span class="swatch-val">#141719</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#1e2226;"></div><div class="swatch-info"><span class="swatch-step">800</span><span class="swatch-val">#1e2226</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#2e3337;"></div><div class="swatch-info"><span class="swatch-step">700</span><span class="swatch-val">#2e3337</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#404549;"></div><div class="swatch-info"><span class="swatch-step">600</span><span class="swatch-val">#404549</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#585d62;"></div><div class="swatch-info"><span class="swatch-step">500</span><span class="swatch-val">#585d62</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#757a7f;"></div><div class="swatch-info"><span class="swatch-step">400</span><span class="swatch-val">#757a7f</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#979b9f;"></div><div class="swatch-info"><span class="swatch-step">300</span><span class="swatch-val">#979b9f</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#bcbfc3;"></div><div class="swatch-info"><span class="swatch-step">200</span><span class="swatch-val">#bcbfc3</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#dcdfe2;"></div><div class="swatch-info"><span class="swatch-step">100</span><span class="swatch-val">#dcdfe2</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#f0f2f4; border:1px solid #2e3337;"></div><div class="swatch-info"><span class="swatch-step">50</span><span class="swatch-val">#f0f2f4</span></div></div>
+        </div>
+      </div>
+
+      <!-- SAGE -->
+      <div class="scale">
+        <div class="scale-head">
+          <span class="scale-name">Sage</span>
+          <span class="scale-tag">Brand Green</span>
+        </div>
+        <p class="scale-desc">Primary brand color at hue ~130°. Used for brand expression, UI accents, and the mark. Sage-600 meets AA for large text only on Ink-950. For interactive text labels, use Sage-500 (7.35:1, AAA). Not interchangeable with Success green.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-block" style="background:#1c2319;"></div><div class="swatch-info"><span class="swatch-step">950</span><span class="swatch-val">#1c2319</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#2f3c2b;"></div><div class="swatch-info"><span class="swatch-step">900</span><span class="swatch-val">#2f3c2b</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#43553e;"></div><div class="swatch-info"><span class="swatch-step">800</span><span class="swatch-val">#43553e</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#536a4c;"></div><div class="swatch-info"><span class="swatch-step">700</span><span class="swatch-val">#536a4c</span></div></div>
+          <div class="swatch"><div class="swatch-block anchor" style="background:#647f5d;"></div><div class="swatch-info"><span class="swatch-step">600</span><span class="swatch-val">#647f5d</span><span class="role-badge">Primary</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#85aa7b;"></div><div class="swatch-info"><span class="swatch-step">500</span><span class="swatch-val">#85aa7b</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#9ebb96;"></div><div class="swatch-info"><span class="swatch-step">400</span><span class="swatch-val">#9ebb96</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#b6ccb0;"></div><div class="swatch-info"><span class="swatch-step">300</span><span class="swatch-val">#b6ccb0</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#cce0c8;"></div><div class="swatch-info"><span class="swatch-step">200</span><span class="swatch-val">#cce0c8</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#e6f0e4;"></div><div class="swatch-info"><span class="swatch-step">100</span><span class="swatch-val">#e6f0e4</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#f5faf4; border:1px solid #2e3337;"></div><div class="swatch-info"><span class="swatch-step">50</span><span class="swatch-val">#f5faf4</span></div></div>
+        </div>
+      </div>
+
+      <!-- STONE -->
+      <div class="scale">
+        <div class="scale-head">
+          <span class="scale-name">Stone</span>
+          <span class="scale-tag">Warm Neutral</span>
+        </div>
+        <p class="scale-desc">Warm neutral. Supports light-mode surfaces, secondary UI, and muted text. Provides warmth where Ink provides structure. Never a primary action color.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-block" style="background:#201d19;"></div><div class="swatch-info"><span class="swatch-step">950</span><span class="swatch-val">#201d19</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#2f2b26;"></div><div class="swatch-info"><span class="swatch-step">900</span><span class="swatch-val">#2f2b26</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#46413a;"></div><div class="swatch-info"><span class="swatch-step">800</span><span class="swatch-val">#46413a</span></div></div>
+          <div class="swatch"><div class="swatch-block anchor" style="background:#5d564d;"></div><div class="swatch-info"><span class="swatch-step">700</span><span class="swatch-val">#5d564d</span><span class="role-badge">Primary</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#6d675f;"></div><div class="swatch-info"><span class="swatch-step">600</span><span class="swatch-val">#6d675f</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#7d7871;"></div><div class="swatch-info"><span class="swatch-step">500</span><span class="swatch-val">#7d7871</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#9e9a94;"></div><div class="swatch-info"><span class="swatch-step">400</span><span class="swatch-val">#9e9a94</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#bebbb8;"></div><div class="swatch-info"><span class="swatch-step">300</span><span class="swatch-val">#bebbb8</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#d4d2cf;"></div><div class="swatch-info"><span class="swatch-step">200</span><span class="swatch-val">#d4d2cf</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#e8e7e5;"></div><div class="swatch-info"><span class="swatch-step">100</span><span class="swatch-val">#e8e7e5</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:#f5f4f3; border:1px solid #2e3337;"></div><div class="swatch-info"><span class="swatch-step">50</span><span class="swatch-val">#f5f4f3</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEMANTIC SCALES -->
+  <div class="scale-group color-page-end">
+    <div class="group-label">Semantic scales</div>
+    <div class="scales">
+
+      <!-- RED -->
+      <div class="scale">
+        <div class="scale-head">
+          <span class="scale-name">Red</span>
+          <span class="scale-tag">Error · Alarm · Destructive</span>
+        </div>
+        <p class="scale-desc">Brick-tomato at hue 22°. Chroma 0.195 keeps it legible on Ink without noise. Distinct from orange by 16°.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-950);"></div><div class="swatch-info"><span class="swatch-step">950</span><span class="swatch-val">L.15 C.035</span><span class="role-badge">Dark tint</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-900);"></div><div class="swatch-info"><span class="swatch-step">900</span><span class="swatch-val">L.22 C.060</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-800);"></div><div class="swatch-info"><span class="swatch-step">800</span><span class="swatch-val">L.31 C.105</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-700);"></div><div class="swatch-info"><span class="swatch-step">700</span><span class="swatch-val">L.41 C.148</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-600);"></div><div class="swatch-info"><span class="swatch-step">600</span><span class="swatch-val">L.51 C.175</span></div></div>
+          <div class="swatch"><div class="swatch-block anchor" style="background:var(--red-500);"></div><div class="swatch-info"><span class="swatch-step">500</span><span class="swatch-val">L.61 C.195</span><span class="role-badge">On dark</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-400);"></div><div class="swatch-info"><span class="swatch-step">400</span><span class="swatch-val">L.70 C.160</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-300);"></div><div class="swatch-info"><span class="swatch-step">300</span><span class="swatch-val">L.79 C.120</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-200);"></div><div class="swatch-info"><span class="swatch-step">200</span><span class="swatch-val">L.87 C.075</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-100);"></div><div class="swatch-info"><span class="swatch-step">100</span><span class="swatch-val">L.93 C.038</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--red-50); border:1px solid var(--red-300);"></div><div class="swatch-info"><span class="swatch-step">50</span><span class="swatch-val">L.97 C.015</span><span class="role-badge">Light tint</span></div></div>
+        </div>
+        <div class="usage-row">
+          <div class="usage-cell"><span class="usage-role">Icon · border (dark)</span><span class="usage-stop"><span class="dot" style="background:var(--red-500);"></span>500</span><span class="usage-cr">~6.6:1 · AA</span></div>
+          <div class="usage-cell"><span class="usage-role">Text on dark</span><span class="usage-stop"><span class="dot" style="background:var(--red-400);"></span>400</span><span class="usage-cr">~9.1:1 · AAA</span></div>
+          <div class="usage-cell"><span class="usage-role">Surface tint (dark)</span><span class="usage-stop"><span class="dot" style="background:var(--red-950);"></span>950</span></div>
+          <div class="usage-cell"><span class="usage-role">Icon · text (light)</span><span class="usage-stop"><span class="dot" style="background:var(--red-600);"></span>600–700</span></div>
+        </div>
+      </div>
+
+      <!-- AMBER -->
+      <div class="scale">
+        <div class="scale-head">
+          <span class="scale-name">Amber</span>
+          <span class="scale-tag">Warning · Caution · Pending</span>
+        </div>
+        <p class="scale-desc">Golden amber at hue 72°. Yellow-shifted for cross-cultural legibility as caution. 500 anchored higher at L 0.73, as yellow-spectrum colors need higher lightness on dark surfaces to remain legible. Orange is excluded: semantically redundant with Red and unreliable for colorblind users.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-950);"></div><div class="swatch-info"><span class="swatch-step">950</span><span class="swatch-val">L.15 C.035</span><span class="role-badge">Dark tint</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-900);"></div><div class="swatch-info"><span class="swatch-step">900</span><span class="swatch-val">L.22 C.058</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-800);"></div><div class="swatch-info"><span class="swatch-step">800</span><span class="swatch-val">L.32 C.092</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-700);"></div><div class="swatch-info"><span class="swatch-step">700</span><span class="swatch-val">L.44 C.130</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-600);"></div><div class="swatch-info"><span class="swatch-step">600</span><span class="swatch-val">L.57 C.155</span></div></div>
+          <div class="swatch"><div class="swatch-block anchor" style="background:var(--amber-500);"></div><div class="swatch-info"><span class="swatch-step">500</span><span class="swatch-val">L.73 C.170</span><span class="role-badge">On dark</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-400);"></div><div class="swatch-info"><span class="swatch-step">400</span><span class="swatch-val">L.82 C.135</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-300);"></div><div class="swatch-info"><span class="swatch-step">300</span><span class="swatch-val">L.88 C.095</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-200);"></div><div class="swatch-info"><span class="swatch-step">200</span><span class="swatch-val">L.93 C.055</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-100);"></div><div class="swatch-info"><span class="swatch-step">100</span><span class="swatch-val">L.96 C.025</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--amber-50); border:1px solid var(--amber-300);"></div><div class="swatch-info"><span class="swatch-step">50</span><span class="swatch-val">L.99 C.010</span><span class="role-badge">Light tint</span></div></div>
+        </div>
+        <div class="usage-row">
+          <div class="usage-cell"><span class="usage-role">Icon · border (dark)</span><span class="usage-stop"><span class="dot" style="background:var(--amber-500);"></span>500</span><span class="usage-cr">~10.0:1 · AAA</span></div>
+          <div class="usage-cell"><span class="usage-role">Text on dark</span><span class="usage-stop"><span class="dot" style="background:var(--amber-400);"></span>400</span><span class="usage-cr">~13.0:1 · AAA</span></div>
+          <div class="usage-cell"><span class="usage-role">Surface tint (dark)</span><span class="usage-stop"><span class="dot" style="background:var(--amber-950);"></span>950</span></div>
+          <div class="usage-cell"><span class="usage-role">Icon · text (light)</span><span class="usage-stop"><span class="dot" style="background:var(--amber-700);"></span>600–700</span></div>
+        </div>
+      </div>
+
+      <!-- GREEN -->
+      <div class="scale">
+        <div class="scale-head">
+          <span class="scale-name">Green</span>
+          <span class="scale-tag">Success · Positive · Confirmed</span>
+        </div>
+        <p class="scale-desc">Emerald at hue 148°. On-dark anchor at 400 (L.75), not 500 (L.65), widening the luminance gap from Red-500 to 0.14 in L for colorblind distinction. Never a brand color.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-950);"></div><div class="swatch-info"><span class="swatch-step">950</span><span class="swatch-val">L.15 C.040</span><span class="role-badge">Dark tint</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-900);"></div><div class="swatch-info"><span class="swatch-step">900</span><span class="swatch-val">L.22 C.068</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-800);"></div><div class="swatch-info"><span class="swatch-step">800</span><span class="swatch-val">L.31 C.112</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-700);"></div><div class="swatch-info"><span class="swatch-step">700</span><span class="swatch-val">L.42 C.158</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-600);"></div><div class="swatch-info"><span class="swatch-step">600</span><span class="swatch-val">L.54 C.188</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-500);"></div><div class="swatch-info"><span class="swatch-step">500</span><span class="swatch-val">L.65 C.205</span></div></div>
+          <div class="swatch"><div class="swatch-block anchor" style="background:var(--green-400);"></div><div class="swatch-info"><span class="swatch-step">400</span><span class="swatch-val">L.75 C.168</span><span class="role-badge">On dark</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-300);"></div><div class="swatch-info"><span class="swatch-step">300</span><span class="swatch-val">L.83 C.120</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-200);"></div><div class="swatch-info"><span class="swatch-step">200</span><span class="swatch-val">L.90 C.072</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-100);"></div><div class="swatch-info"><span class="swatch-step">100</span><span class="swatch-val">L.95 C.035</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--green-50); border:1px solid var(--green-300);"></div><div class="swatch-info"><span class="swatch-step">50</span><span class="swatch-val">L.98 C.013</span><span class="role-badge">Light tint</span></div></div>
+        </div>
+        <div class="usage-row">
+          <div class="usage-cell"><span class="usage-role">Icon · border (dark)</span><span class="usage-stop"><span class="dot" style="background:var(--green-400);"></span>400</span><span class="usage-cr">~10.7:1 · AAA</span></div>
+          <div class="usage-cell"><span class="usage-role">Text on dark</span><span class="usage-stop"><span class="dot" style="background:var(--green-400);"></span>400</span><span class="usage-cr">~10.7:1 · AAA</span></div>
+          <div class="usage-cell"><span class="usage-role">Surface tint (dark)</span><span class="usage-stop"><span class="dot" style="background:var(--green-950);"></span>950</span></div>
+          <div class="usage-cell"><span class="usage-role">Icon · text (light)</span><span class="usage-stop"><span class="dot" style="background:var(--green-600);"></span>600–700</span></div>
+        </div>
+      </div>
+
+      <!-- BLUE -->
+      <div class="scale">
+        <div class="scale-head">
+          <span class="scale-name">Blue</span>
+          <span class="scale-tag">Info · Reference · Neutral</span>
+        </div>
+        <p class="scale-desc">Cool slate at hue 232°. Ink's implied undertone made legible. Reads as informational, never interactive. Primary actions stay with Sage.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-950);"></div><div class="swatch-info"><span class="swatch-step">950</span><span class="swatch-val">L.14 C.028</span><span class="role-badge">Dark tint</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-900);"></div><div class="swatch-info"><span class="swatch-step">900</span><span class="swatch-val">L.21 C.052</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-800);"></div><div class="swatch-info"><span class="swatch-step">800</span><span class="swatch-val">L.30 C.092</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-700);"></div><div class="swatch-info"><span class="swatch-step">700</span><span class="swatch-val">L.40 C.138</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-600);"></div><div class="swatch-info"><span class="swatch-step">600</span><span class="swatch-val">L.51 C.170</span></div></div>
+          <div class="swatch"><div class="swatch-block anchor" style="background:var(--blue-500);"></div><div class="swatch-info"><span class="swatch-step">500</span><span class="swatch-val">L.62 C.185</span><span class="role-badge">On dark</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-400);"></div><div class="swatch-info"><span class="swatch-step">400</span><span class="swatch-val">L.72 C.148</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-300);"></div><div class="swatch-info"><span class="swatch-step">300</span><span class="swatch-val">L.81 C.108</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-200);"></div><div class="swatch-info"><span class="swatch-step">200</span><span class="swatch-val">L.89 C.065</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-100);"></div><div class="swatch-info"><span class="swatch-step">100</span><span class="swatch-val">L.94 C.032</span></div></div>
+          <div class="swatch"><div class="swatch-block" style="background:var(--blue-50); border:1px solid var(--blue-300);"></div><div class="swatch-info"><span class="swatch-step">50</span><span class="swatch-val">L.98 C.012</span><span class="role-badge">Light tint</span></div></div>
+        </div>
+        <div class="usage-row">
+          <div class="usage-cell"><span class="usage-role">Icon · border (dark)</span><span class="usage-stop"><span class="dot" style="background:var(--blue-500);"></span>500</span><span class="usage-cr">~7.0:1 · AA</span></div>
+          <div class="usage-cell"><span class="usage-role">Text on dark</span><span class="usage-stop"><span class="dot" style="background:var(--blue-400);"></span>400</span><span class="usage-cr">~9.6:1 · AAA</span></div>
+          <div class="usage-cell"><span class="usage-role">Surface tint (dark)</span><span class="usage-stop"><span class="dot" style="background:var(--blue-950);"></span>950</span></div>
+          <div class="usage-cell"><span class="usage-role">Icon · text (light)</span><span class="usage-stop"><span class="dot" style="background:var(--blue-600);"></span>600–700</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /page -->
+</div><!-- /pg-color -->
+
+<!-- ═══════════════════════════════════════════════════════ TONE PAGE -->
+<div class="pg" id="pg-tone">
+  <div class="tone-wrap">
+
+    <!-- HERO -->
+    <div class="tone-hero">
+      <div class="tone-hero-label">Voice and tone</div>
+      <h1>If it feels <em>loud,</em><br>it is wrong.</h1>
+      <p class="tone-governing">Calm. Specific. Focused on the grower's work, not on ORTH.</p>
+    </div>
+
+    <!-- SLOGANS -->
+    <div style="padding: 0 0 160px;">
+      <div class="tone-section-label">ORTH slogans</div>
+      <div class="tone-slogans">
+        <div class="slogan-line">Agronomic guidance at the <em>moment of decision.</em></div>
+        <div class="slogan-line">Your AI agronomist, <em>24/7.</em></div>
+        <div class="slogan-line muted"><em>Clarity</em> in the field.</div>
+        <div class="slogan-line muted">Give your land a <em>voice.</em></div>
+      </div>
+    </div>
+
+    <!-- PRINCIPLES -->
+    <div style="padding-bottom: 160px;">
+      <div class="tone-section-label">ORTH · five core principles</div>
+      <div class="tone-principles">
+
+        <div class="tone-principle">
+          <div>
+            <div class="tp-num">01</div>
+            <div class="tp-name">User as Protagonist</div>
+            <div class="tp-def">The grower is the hero. ORTH is the infrastructure that enabled the outcome.</div>
+          </div>
+          <div class="tp-right">
+            <div class="tp-example wrong"><span class="tp-example-text">ORTH's AI detected early-stage rust pressure and triggered a preventive response.</span><span class="tp-example-icon-wrap tp-example-icon wrong"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="tp-example right"><span class="tp-example-text">A grower in southern Spain caught botrytis pressure three weeks early. The spray window was still open.</span><span class="tp-example-icon-wrap tp-example-icon right"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          </div>
+        </div>
+
+        <div class="tone-principle">
+          <div>
+            <div class="tp-num">02</div>
+            <div class="tp-name">Outcomes Over Capabilities</div>
+            <div class="tp-def">Describe consequences. Feature lists create cognitive load. Outcomes demonstrate value.</div>
+          </div>
+          <div class="tp-right">
+            <div class="tp-example wrong"><span class="tp-example-text">Real-time analysis powered by hyperlocal weather modeling and adaptive crop intelligence.</span><span class="tp-example-icon-wrap tp-example-icon wrong"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="tp-example right"><span class="tp-example-text">Decision time down from three hours to twenty minutes during a mid-season irrigation call.</span><span class="tp-example-icon-wrap tp-example-icon right"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          </div>
+        </div>
+
+        <div class="tone-principle">
+          <div>
+            <div class="tp-num">03</div>
+            <div class="tp-name">Specificity Over Abstraction</div>
+            <div class="tp-def">Ground claims in field reality. Vague claims are indistinguishable from competitors.</div>
+          </div>
+          <div class="tp-right">
+            <div class="tp-example wrong"><span class="tp-example-text">ORTH empowers farmers with intelligent tools to optimize operations and maximize yield potential.</span><span class="tp-example-icon-wrap tp-example-icon wrong"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="tp-example right"><span class="tp-example-text">A citrus grower in Morocco, mid-season, with rain forecast in 36 hours and a narrow treatment window.</span><span class="tp-example-icon-wrap tp-example-icon right"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          </div>
+        </div>
+
+        <div class="tone-principle">
+          <div>
+            <div class="tp-num">04</div>
+            <div class="tp-name">Demonstration Over Celebration</div>
+            <div class="tp-def">Show value through use. Restraint builds credibility. Self-congratulation erodes it.</div>
+          </div>
+          <div class="tp-right">
+            <div class="tp-example wrong"><span class="tp-example-text">We're thrilled to announce a breakthrough in agronomic intelligence.</span><span class="tp-example-icon-wrap tp-example-icon wrong"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="tp-example right"><span class="tp-example-text">Season two looked different from season one. The spray log was shorter. The yield was not.</span><span class="tp-example-icon-wrap tp-example-icon right"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          </div>
+        </div>
+
+        <div class="tone-principle">
+          <div>
+            <div class="tp-num">05</div>
+            <div class="tp-name">Transparent Limitations</div>
+            <div class="tp-def">Acknowledge what ORTH cannot do. A low confidence score is not a warning. It is an invitation to provide more context. Honesty builds more trust than overpromising.</div>
+          </div>
+          <div class="tp-right">
+            <div class="tp-example wrong"><span class="tp-example-text">ORTH delivers precise guidance for every crop, region, and condition, whenever you need it.</span><span class="tp-example-icon-wrap tp-example-icon wrong"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="tp-example right"><span class="tp-example-text">ORTH flagged the risk. The call on varietal resistance stayed with the agronomist.</span><span class="tp-example-icon-wrap tp-example-icon right"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TONE AXES -->
+    <div style="padding-bottom: 160px;">
+      <div class="tone-section-label">Tone position</div>
+      <div class="tone-axes">
+        <div class="tone-axis">
+          <span class="axis-label-left">Broad</span>
+          <div class="axis-track">
+            <div class="axis-dot" style="left:88%;"></div>
+            <span class="axis-annotation" style="left:88%;">Named. Placed. Pressured.</span>
+          </div>
+          <span class="axis-label-right">Specific</span>
+        </div>
+        <div class="tone-axis">
+          <span class="axis-label-left">Promotional</span>
+          <div class="axis-track">
+            <div class="axis-dot" style="left:92%;"></div>
+            <span class="axis-annotation" style="left:92%;">Infrastructure, not pitch.</span>
+          </div>
+          <span class="axis-label-right">Grounded</span>
+        </div>
+        <div class="tone-axis">
+          <span class="axis-label-left">Loud</span>
+          <div class="axis-track">
+            <div class="axis-dot" style="left:85%;"></div>
+            <span class="axis-annotation" style="left:85%;">Quietly confident.</span>
+          </div>
+          <span class="axis-label-right">Quiet</span>
+        </div>
+        <div class="tone-axis">
+          <span class="axis-label-left">Celebratory</span>
+          <div class="axis-track">
+            <div class="axis-dot" style="left:90%;"></div>
+            <span class="axis-annotation" style="left:90%;">Show. Don't announce.</span>
+          </div>
+          <span class="axis-label-right">Transparent</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div style="padding-bottom: 160px;">
+      <div class="tone-section-label">Before you publish</div>
+      <div class="tone-checklist">
+        <div class="check-item"><span class="check-num">01</span><span class="check-q">Infrastructure or pitch?</span><span class="check-a">Should be infrastructure.</span></div>
+        <div class="check-item"><span class="check-num">02</span><span class="check-q">Durable or dated?</span><span class="check-a">Should age well.</span></div>
+        <div class="check-item"><span class="check-num">03</span><span class="check-q">Is this falsifiable?</span><span class="check-a">Vague claims weaken trust.</span></div>
+        <div class="check-item"><span class="check-num">04</span><span class="check-q">Respectful of expertise?</span><span class="check-a">No condescension.</span></div>
+        <div class="check-item"><span class="check-num">05</span><span class="check-q">Could a competitor claim this?</span><span class="check-a">If yes, it lacks specificity.</span></div>
+        <div class="check-item"><span class="check-num">06</span><span class="check-q">Calm and precise?</span><span class="check-a">Loud or clever means misaligned.</span></div>
+      </div>
+    </div>
+
+    <!-- CONTEXTUAL TONE -->
+    <div style="padding-bottom: 120px;">
+      <div class="tone-section-label">One communication truth.</div>
+      <p style="font-family:var(--font-body);font-size:15px;font-weight:400;color:rgba(255,255,255,0.80);line-height:1.6;max-width:640px;margin-bottom:120px;">ORTH gets better the more context it has. The first session is not the full picture. External communications should set this expectation honestly: not as a disclaimer, but as part of how the product is described. The ramp is real and worth stating.</p>
+
+      <div class="tone-section-label" style="margin-bottom:64px;">When the context demands more.</div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:80px;">
+
+        <div>
+          <div style="font-family:var(--font-display);font-size:clamp(18px,1.8vw,26px);font-weight:300;letter-spacing:-0.03em;line-height:1.2;color:rgba(255,255,255,1.0);margin-bottom:16px;">LinkedIn</div>
+          <p style="font-family:var(--font-body);font-size:15px;font-weight:400;color:rgba(255,255,255,0.80);line-height:1.6;margin-bottom:16px;">LinkedIn allows for more presence. Posts can open with a specific field scenario, a grower result, or a concrete observation. A degree of narrative is appropriate. The tone stays grounded: no excitement, no buzzwords, but it can carry a stronger point of view and end with a clear statement of what ORTH does or believes.</p>
+          <p style="font-family:var(--font-body);font-size:13px;font-weight:600;color:rgba(255,255,255,0.60);line-height:1.6;">Specific. Point-of-view. Ends with conviction.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--font-display);font-size:clamp(18px,1.8vw,26px);font-weight:300;letter-spacing:-0.03em;line-height:1.2;color:rgba(255,255,255,1.0);margin-bottom:16px;">Investor decks</div>
+          <p style="font-family:var(--font-body);font-size:15px;font-weight:400;color:rgba(255,255,255,0.80);line-height:1.6;margin-bottom:16px;">Decks can state scale, ambition, and market opportunity directly. Numbers and claims belong here in a way they do not in product copy. The framing stays grounded: lead with the problem, show the evidence, make the case. But the register shifts toward investment logic: size, timing, defensibility.</p>
+          <p style="font-family:var(--font-body);font-size:13px;font-weight:600;color:rgba(255,255,255,0.60);line-height:1.6;">Evidence-led. Ambitious but traceable.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--font-display);font-size:clamp(18px,1.8vw,26px);font-weight:300;letter-spacing:-0.03em;line-height:1.2;color:rgba(255,255,255,1.0);margin-bottom:16px;">Partner pitches</div>
+          <p style="font-family:var(--font-body);font-size:15px;font-weight:400;color:rgba(255,255,255,0.80);line-height:1.6;margin-bottom:16px;">Partner-facing writing can be warmer and more direct about mutual benefit. State what ORTH does, what you need from the partner, and what the grower gains. Avoid soft language around collaboration and synergy. The most credible pitch is a specific problem, a concrete solution, and a shared outcome.</p>
+          <p style="font-family:var(--font-body);font-size:13px;font-weight:600;color:rgba(255,255,255,0.60);line-height:1.6;">Direct. Mutual. Problem first.</p>
+        </div>
+
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:80px; margin-top:80px;">
+
+        <div>
+          <div style="font-family:var(--font-display);font-size:clamp(18px,1.8vw,26px);font-weight:300;letter-spacing:-0.03em;line-height:1.2;color:rgba(255,255,255,1.0);margin-bottom:16px;">Institutional and government</div>
+          <p style="font-family:var(--font-body);font-size:15px;font-weight:400;color:rgba(255,255,255,0.80);line-height:1.6;margin-bottom:16px;">Enterprise and government contexts require a more measured register. Lead with scale, coverage, and reliability. Avoid product-forward language. Institutions are buying infrastructure, not a feature set. State what ORTH does across operations, what the agronomic outcome is at scale, and what the accountability model looks like. Specificity about geography and crop type builds credibility faster than any claim about AI.</p>
+          <p style="font-family:var(--font-body);font-size:13px;font-weight:600;color:rgba(255,255,255,0.60);line-height:1.6;">Scale. Reliability. Outcome at the operation level.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AYDI -->
+    <div class="aydi-intro">
+      <div class="aydi-intro-heading">Aydi speaks like <em>infrastructure.</em></div>
+      <p class="aydi-intro-body">Where ORTH speaks from the field, Aydi speaks from the company level: measured, institutional, durable. Same governing principle. Different context and audience.</p>
+    </div>
+
+    <div class="aydi-attrs">
+      <div>
+        <div class="aydi-attr-name">Calm</div>
+        <div class="aydi-attr-def">Urgency already exists. Adding pressure is counterproductive.</div>
+      </div>
+      <div>
+        <div class="aydi-attr-name">Precise</div>
+        <div class="aydi-attr-def">Vague claims undermine credibility in high-stakes domains.</div>
+      </div>
+      <div>
+        <div class="aydi-attr-name">Grounded</div>
+        <div class="aydi-attr-def">Speak from observation and consequence. Not theory or roadmap.</div>
+      </div>
+      <div>
+        <div class="aydi-attr-name">Restrained</div>
+        <div class="aydi-attr-def">Engagement-seeking behavior damages institutional credibility.</div>
+      </div>
+      <div>
+        <div class="aydi-attr-name">Quietly Confident</div>
+        <div class="aydi-attr-def">Certainty without volume. Capability without performance.</div>
+      </div>
+    </div>
+
+    <div class="aydi-domains">
+      <div class="aydi-domain">
+        <span class="domain-name">Technical</span>
+        <div><div class="domain-col-head">Approach</div><div class="domain-approach">Precision over sophistication. Limitations acknowledged. Every decision traced to field outcomes.</div></div>
+        <div><div class="domain-col-head">Avoid</div><div class="domain-avoid">"Cutting-edge," "revolutionary." Jargon without context.</div></div>
+      </div>
+      <div class="aydi-domain">
+        <span class="domain-name">Product</span>
+        <div><div class="domain-col-head">Approach</div><div class="domain-approach">Lead with problems. Specificity over superlatives. User is protagonist, not product.</div></div>
+        <div><div class="domain-col-head">Avoid</div><div class="domain-avoid">"Empowering," "transforming." Feature lists without outcomes.</div></div>
+      </div>
+      <div class="aydi-domain">
+        <span class="domain-name">Brand</span>
+        <div><div class="domain-col-head">Approach</div><div class="domain-approach">Consistency over novelty. Clarity over cleverness. Authority through observation.</div></div>
+        <div><div class="domain-col-head">Avoid</div><div class="domain-avoid">Borrowed urgency. Buzzwords. Performative vulnerability.</div></div>
+      </div>
+      <div class="aydi-domain">
+        <span class="domain-name">Partnership</span>
+        <div><div class="domain-col-head">Approach</div><div class="domain-approach">Specificity over scope. One real problem solved is more credible than broad claims.</div></div>
+        <div><div class="domain-col-head">Avoid</div><div class="domain-avoid">"Excited to announce." Vague opportunity language.</div></div>
+      </div>
+      <div class="aydi-domain">
+        <span class="domain-name">Executive</span>
+        <div><div class="domain-col-head">Approach</div><div class="domain-approach">Vision grounded in reality. Conviction without dogma. The work as protagonist.</div></div>
+        <div><div class="domain-col-head">Avoid</div><div class="domain-avoid">Personal narratives. Inspirational language disconnected from operations.</div></div>
+      </div>
+    </div>
+
+    <div class="tone-closing">
+      <p class="tone-closing-rule">Loud, clever, or self-congratulatory · <strong>wrong.</strong><br>Calm, precise, quietly confident · <strong>aligned.</strong></p>
+      <p class="tone-closing-rule" style="margin-top:16px;font-size:15px;">Never imply ORTH was built quickly or easily. The work is real. Say so through specificity, not claims.</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══ TYPOGRAPHY PAGE -->
+<div class="pg" id="pg-type">
+  <div class="type-wrap">
+
+    <!-- HERO -->
+    <div class="type-hero">
+      <h1>Three fonts.<br>One <em>system.</em></h1>
+      <p class="type-hero-sub">Cocogoose anchors every display moment. Source Serif 4 introduces contrast. Nunito Sans handles everything else.</p>
+    </div>
+
+    <!-- COCOGOOSE -->
+    <div class="type-section">
+      <div class="type-section-label">Cocogoose Pro Semilight</div>
+      <div class="type-font-intro">
+        <div>
+          <div class="type-font-name">Primary<br><em>identity.</em></div>
+          <p class="type-font-role">Every display heading, hero, section title, feature title, and stat number. Cocogoose is the visual anchor of the system. Its geometric weight and generous width give ORTH its presence at scale.</p>
+          <div class="type-font-rules">
+            <div class="type-rule"><span class="type-rule-dot">–</span><span>Semilight (weight 300) only. No other weights exist in this system.</span></div>
+            <div class="type-rule"><span class="type-rule-dot">–</span><span>No italic. Source Serif 4 is the system's contrast device. Cocogoose stays upright.</span></div>
+            <div class="type-rule"><span class="type-rule-dot">–</span><span>No condensed variants.</span></div>
+            <div class="type-rule"><span class="type-rule-dot">–</span><span>Minimum use size: 22px. Below this, switch to Nunito Sans.</span></div>
+            <div class="type-rule"><span class="type-rule-dot">–</span><span>Letter-spacing: –0.04em at hero scale, –0.03em at feature scale.</span></div>
+          </div>
+        </div>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <span class="type-specimen-label">Hero · clamp(40px, 5.5vw, 72px)</span>
+            <div style="font-family:var(--font-display);font-size:clamp(40px,5.5vw,72px);font-weight:300;letter-spacing:-0.04em;line-height:1.08;color:rgba(255,255,255,1.0);">Field Intelligence</div>
+          </div>
+          <div class="type-specimen">
+            <span class="type-specimen-label">Section heading · clamp(28px, 3.5vw, 48px)</span>
+            <div style="font-family:var(--font-display);font-size:clamp(28px,3.5vw,48px);font-weight:300;letter-spacing:-0.04em;line-height:1.15;color:rgba(255,255,255,1.0);">The core of smarter agronomy</div>
+          </div>
+          <div class="type-specimen">
+            <span class="type-specimen-label">Feature title · clamp(22px, 2.4vw, 34px)</span>
+            <div style="font-family:var(--font-display);font-size:clamp(22px,2.4vw,34px);font-weight:300;letter-spacing:-0.03em;line-height:1.2;color:rgba(255,255,255,1.0);">Ask anything. Get field-level answers.</div>
+          </div>
+          <div class="type-specimen">
+            <span class="type-specimen-label">Stat number · 30px</span>
+            <div style="font-family:var(--font-display);font-size:30px;font-weight:300;letter-spacing:-0.03em;color:rgba(255,255,255,1.0);">+38%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOURCE SERIF 4 -->
+    <div class="type-section">
+      <div class="type-section-label">Source Serif 4</div>
+      <div class="type-font-intro">
+        <div>
+          <div class="type-font-name">One word.<br><em>Italic.</em></div>
+          <p class="type-font-role">Source Serif 4 plays one role: the italic contrast word inside a Cocogoose headline. The serif against the geometric creates productive tension. It is never used for body text, subheads, or standalone copy.</p>
+          <div class="type-font-rules">
+            <div class="type-rule"><span class="type-rule-dot">–</span><span>Italic only. The roman weight is not in use.</span></div>
+            <div class="type-rule"><span class="type-rule-dot">–</span><span>One word per headline as a strong default. The italic should carry weight, not decoration. More than one and the tension collapses.</span></div>
+            <div class="type-rule"><span class="type-rule-dot">–</span><span>Size: 1.1em of the parent Cocogoose element.</span></div>
+            <div class="type-rule"><span class="type-rule-dot">–</span><span>Pick the word that carries the most meaning or tension. It should feel inevitable, not decorative, not random.</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="serif-context">
+            <div class="serif-example">
+              <span class="serif-example-label">In a hero headline</span>
+              <div style="font-family:var(--font-display);font-size:clamp(40px,5.5vw,72px);font-weight:300;letter-spacing:-0.04em;line-height:1.08;color:rgba(255,255,255,1.0);">Agronomic <em style="font-family:var(--font-serif);font-style:italic;font-weight:400;font-size:1.1em;">clarity</em><br>in every field.</div>
+            </div>
+            <div class="serif-example">
+              <span class="serif-example-label">In a section heading</span>
+              <div style="font-family:var(--font-display);font-size:clamp(28px,3.5vw,48px);font-weight:300;letter-spacing:-0.04em;line-height:1.15;color:rgba(255,255,255,1.0);">Built from the <em style="font-family:var(--font-serif);font-style:italic;font-weight:400;font-size:1.1em;">ground</em> up.</div>
+            </div>
+            <div class="serif-example">
+              <span class="serif-example-label">In a feature title</span>
+              <div style="font-family:var(--font-display);font-size:clamp(22px,2.4vw,34px);font-weight:300;letter-spacing:-0.03em;line-height:1.2;color:rgba(255,255,255,1.0);">Know exactly when to spray, and when to <em style="font-family:var(--font-serif);font-style:italic;font-weight:400;font-size:1.1em;">wait.</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NUNITO SANS -->
+    <div class="type-section">
+      <div class="type-section-label">Nunito Sans</div>
+      <div class="type-font-intro">
+        <div>
+          <div class="type-font-name">The<br><em>workhorse.</em></div>
+          <p class="type-font-role">Everything below the display level is Nunito Sans. Body copy, navigation, buttons, labels, captions, footers. Its geometric construction echoes Cocogoose without competing with it. Five weights cover the full range from editorial to functional.</p>
+          <div class="nunito-weights">
+            <div class="nunito-weight-row">
+              <span class="nunito-weight-num">300</span>
+              <span style="font-family:var(--font-body);font-size:17px;font-weight:300;color:rgba(255,255,255,1.0);">Field-level agronomic guidance</span>
+              <span class="nunito-weight-roles">Mission, belief, large quotes</span>
+            </div>
+            <div class="nunito-weight-row">
+              <span class="nunito-weight-num">400</span>
+              <span style="font-family:var(--font-body);font-size:17px;font-weight:400;color:rgba(255,255,255,1.0);">Field-level agronomic guidance</span>
+              <span class="nunito-weight-roles">Body, descriptions, footer links</span>
+            </div>
+            <div class="nunito-weight-row">
+              <span class="nunito-weight-num">500</span>
+              <span style="font-family:var(--font-body);font-size:17px;font-weight:500;color:rgba(255,255,255,1.0);">Field-level agronomic guidance</span>
+              <span class="nunito-weight-roles">Nav links, FAQ, badge text</span>
+            </div>
+            <div class="nunito-weight-row">
+              <span class="nunito-weight-num">600</span>
+              <span style="font-family:var(--font-body);font-size:17px;font-weight:600;color:rgba(255,255,255,1.0);">Field-level agronomic guidance</span>
+              <span class="nunito-weight-roles">Buttons, eyebrow labels, card titles</span>
+            </div>
+            <div class="nunito-weight-row">
+              <span class="nunito-weight-num">700</span>
+              <span style="font-family:var(--font-body);font-size:17px;font-weight:700;color:rgba(255,255,255,1.0);">Field-level agronomic guidance</span>
+              <span class="nunito-weight-roles">Author names, footer col heads, strong emphasis</span>
+            </div>
+          </div>
+        </div>
+        <div class="type-specimens">
+          <div class="type-specimen">
+            <span class="type-specimen-label">Mission / belief · clamp(22px, 2.8vw, 38px) · 300</span>
+            <div style="font-family:var(--font-body);font-size:clamp(22px,2.8vw,38px);font-weight:300;letter-spacing:-0.025em;line-height:1.35;color:rgba(255,255,255,1.0);">Every agronomic decision has a consequence. ORTH exists to make that consequence clearer.</div>
+          </div>
+          <div class="type-specimen">
+            <span class="type-specimen-label">Body / description · 15.5px · 400</span>
+            <div style="font-family:var(--font-body);font-size:15.5px;font-weight:400;line-height:1.6;color:rgba(255,255,255,0.80);">Demand-based irrigation plans that account for evapotranspiration, soil moisture, and crop water requirements per plot.</div>
+          </div>
+          <div class="type-specimen">
+            <span class="type-specimen-label">Eyebrow label · 13px · 600</span>
+            <div style="font-family:var(--font-body);font-size:13px;font-weight:600;color:rgba(255,255,255,0.60);">AI agronomist</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TYPE SCALE TABLE -->
+    <div class="type-section">
+      <div class="type-centered"><div class="type-section-label">Type scale</div><table class="type-scale-table">
+        <thead>
+          <tr>
+            <th style="width:220px;">Role</th>
+            <th style="width:160px;">Font</th>
+            <th style="width:200px;">Size</th>
+            <th style="width:80px;">Weight</th>
+            <th>Tracking · Leading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tst-group-label"><td colspan="5">Display</td></tr>
+          <tr><td class="tst-role">Hero H1</td><td class="tst-font">Cocogoose</td><td>clamp(40px, 5.5vw, 72px)</td><td>300</td><td>–0.04em · 1.08</td></tr>
+          <tr><td class="tst-role">Italic contrast word</td><td class="tst-font">Source Serif 4</td><td>1.1em of parent</td><td>400</td><td>inherited</td></tr>
+          <tr><td class="tst-role">Section heading</td><td class="tst-font">Cocogoose</td><td>clamp(28px, 3.5vw, 48px)</td><td>300</td><td>–0.04em · 1.15</td></tr>
+          <tr><td class="tst-role">CTA heading</td><td class="tst-font">Cocogoose</td><td>clamp(36px, 5vw, 68px)</td><td>300</td><td>–0.04em · 1.08</td></tr>
+          <tr><td class="tst-role">Feature title</td><td class="tst-font">Cocogoose</td><td>clamp(22px, 2.4vw, 34px)</td><td>300</td><td>–0.03em · 1.2</td></tr>
+          <tr><td class="tst-role">Stat number</td><td class="tst-font">Cocogoose</td><td>30px</td><td>300</td><td>–0.03em · -</td></tr>
+          <tr class="tst-group-label"><td colspan="5">Long-form</td></tr>
+          <tr><td class="tst-role">Mission / belief</td><td class="tst-font">Nunito Sans</td><td>clamp(22px, 2.8vw, 38px)</td><td>300</td><td>–0.025em · 1.35</td></tr>
+          <tr><td class="tst-role">Case quote</td><td class="tst-font">Nunito Sans</td><td>clamp(20px, 2vw, 30px)</td><td>300</td><td>–0.03em · 1.3</td></tr>
+          <tr><td class="tst-role">Testimonial quote</td><td class="tst-font">Nunito Sans</td><td>clamp(20px, 2.2vw, 26px)</td><td>300</td><td>–0.02em · 1.4</td></tr>
+          <tr class="tst-group-label"><td colspan="5">UI text</td></tr>
+          <tr><td class="tst-role">Card title</td><td class="tst-font">Nunito Sans</td><td>18px</td><td>600–700</td><td>–0.01em · -</td></tr>
+          <tr><td class="tst-role">Body / description</td><td class="tst-font">Nunito Sans</td><td>15.5–16px</td><td>400</td><td>0 · 1.6</td></tr>
+          <tr><td class="tst-role">Button</td><td class="tst-font">Nunito Sans</td><td>15px</td><td>600</td><td>0 · -</td></tr>
+          <tr><td class="tst-role">Nav link</td><td class="tst-font">Nunito Sans</td><td>15px</td><td>500</td><td>0 · -</td></tr>
+          <tr><td class="tst-role">FAQ question</td><td class="tst-font">Nunito Sans</td><td>15px</td><td>500</td><td>0 · -</td></tr>
+          <tr><td class="tst-role">FAQ body</td><td class="tst-font">Nunito Sans</td><td>14px</td><td>500</td><td>0 · 1.6</td></tr>
+          <tr><td class="tst-role">Eyebrow label</td><td class="tst-font">Nunito Sans</td><td>13px</td><td>600</td><td>0 · -</td></tr>
+          <tr><td class="tst-role">Author name</td><td class="tst-font">Nunito Sans</td><td>14.5px</td><td>700</td><td>0 · -</td></tr>
+          <tr><td class="tst-role">Author role</td><td class="tst-font">Nunito Sans</td><td>13px</td><td>400</td><td>0 · -</td></tr>
+          <tr><td class="tst-role">Footer col head</td><td class="tst-font">Nunito Sans</td><td>12px</td><td>700</td><td>0.04em · -</td></tr>
+          <tr><td class="tst-role">Footer link</td><td class="tst-font">Nunito Sans</td><td>13.5px</td><td>400</td><td>0 · -</td></tr>
+          <tr><td class="tst-role">Footer copyright</td><td class="tst-font">Nunito Sans</td><td>12.5px</td><td>400</td><td>0 · -</td></tr>
+          <tr><td class="tst-role">Badge text</td><td class="tst-font">Nunito Sans</td><td>12.5px</td><td>400</td><td>0 · -</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <!-- IN CONTEXT -->
+    <div class="type-section">
+      <div class="type-section-label">In context</div>
+      <div class="type-context-card">
+        <div class="context-scene">
+          <span class="context-eyebrow">Field report · Andalusia, Spain</span>
+          <div class="context-headline">Rust pressure detected <em>early.</em></div>
+          <p class="context-sub">Guidance issued five days before visual symptoms appeared.</p>
+          <div class="context-divider"></div>
+          <p class="context-body">Humidity patterns and varietal susceptibility flagged elevated risk. The grower adjusted application timing by 48 hours. Yield impact avoided. Decision time: under twenty minutes.</p>
+          <span class="context-meta">Plot A-01 · Olive · Stage 5 · Day 12</span>
+        </div>
+        <div class="context-legend">
+          <div class="legend-item">
+            <span class="legend-font">Cocogoose Pro Semilight</span>
+            <span class="legend-roles">Section heading, feature title. Weight 300. Letter-spacing –0.04em. The structural anchor of every display moment.</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-font">Source Serif 4 italic</span>
+            <span class="legend-roles">One word per headline. "Early" carries the meaning. The serif italic creates tension against the geometric Cocogoose. That tension is the system.</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-font">Nunito Sans</span>
+            <span class="legend-roles">Eyebrow at 13px/600. Subhead at 16px/300. Body at 15.5px/400. Meta at 13px/600. Everything below the headline is Nunito Sans.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONSTRAINTS -->
+    <div class="type-section">
+      <div class="type-centered"><div class="type-section-label">What not to do</div><div class="type-constraints">
+        <div class="constraint-item">
+          <span class="constraint-text">No italic Cocogoose.<span class="constraint-sub">Source Serif 4 italic handles all contrast. Cocogoose stays upright.</span></span>
+          <span class="constraint-x"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="constraint-item">
+          <span class="constraint-text">No Cocogoose below 22px.<span class="constraint-sub">At small sizes geometric weight reads as unintentional. Use Nunito Sans instead.</span></span>
+          <span class="constraint-x"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="constraint-item">
+          <span class="constraint-text">Use Source Serif 4 sparingly within headlines.<span class="constraint-sub">The default is one italic word. The more you add, the less each one means.</span></span>
+          <span class="constraint-x"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="constraint-item">
+          <span class="constraint-text">No Source Serif 4 outside headline context.<span class="constraint-sub">Body text, subheads, captions, labels: all Nunito Sans. Source Serif 4 only works because its appearances are rare.</span></span>
+          <span class="constraint-x"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="constraint-item">
+          <span class="constraint-text">No fonts outside the system in new work.<span class="constraint-sub">DM Sans, DM Mono, and others appear in legacy files. The current system is closed: Cocogoose, Source Serif 4, Nunito Sans.</span></span>
+          <span class="constraint-x"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="constraint-item">
+          <span class="constraint-text">No condensed Cocogoose variants.<span class="constraint-sub">Not in the licensed set. Not in the system.</span></span>
+          <span class="constraint-x"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══ NARRATIVE PAGE -->
+<div class="pg" id="pg-narrative">
+  <div class="narrative-wrap">
+
+    <div class="narrative-hero">
+      <h1 class="narrative-headline">Every call has<br>a <em style="font-family:var(--font-serif);font-style:italic;">consequence.</em></h1>
+      <p class="narrative-subhead">Know what you're building. Know who depends on it.</p>
+    </div>
+
+    <div class="narrative-body">
+
+      <div class="narrative-location">An olive farm. Eastern Mediterranean.</div>
+
+      <p class="narrative-p">The soil here is hard and full of stones. The land sat untouched for nearly forty years inside a buffer zone before anyone was allowed to cultivate it again. When Giorgos David received permission in 2012 and planted the first trees, he was making a bet on land that had no recent record: no history of yield, no data on pest pressure, no proof of what it could become.</p>
+
+      <p class="narrative-p">Today, the farm produces one of the highest polyphenol olive oils in the world. Nobody fully understands why. It may be the location, where winds move through the valley from different directions. It may be the mineral-rich soil, influenced by a copper mine nearby. It may simply be the forty years of silence, the land resting and recovering before anyone asked anything of it.</p>
+
+      <p class="narrative-p">Whatever the reason, the outcome belongs to the people who showed up every morning and made decisions under uncertainty.</p>
+
+    </div><!-- /body -->
+
+    <img class="narrative-img" src="https://raw.githubusercontent.com/ayditechnologies/orth-brand/main/S-Grounded_Olive_Farm_0009.jpg" alt="" style="margin: 32px 0;" />
+
+    <div class="narrative-body">
+      <div class="narrative-person">Anastasia Panteli, 30.<br><em>Agriculturist.</em></div>
+
+      <p class="narrative-p">She grew up in a family of growers. She always knew she wanted to work close to the land. Her day starts in the fields: irrigation, organic fertilization, the health of three olive varieties growing together across this stony ground.</p>
+
+      <p class="narrative-quote">"Never a day is the same in agriculture. There is always a new schedule for the next day."</p>
+
+      <p class="narrative-p">What she means is: the conditions are never stable. The weather shifts. A pressure builds in one block that wasn't there last week. The window to act is often narrow, and reading it correctly depends on what you know and how fast you can know it.</p>
+
+      <p class="narrative-quote">"Every year is different. The weather changes, conditions change, and we have to adapt."</p>
+
+      <p class="narrative-p">This is the environment ORTH is built for. The environment is a field in October where humidity moves differently across plots, where a grower with years of observation still needs confirmation before she commits to a decision. ORTH does not replace what Anastasia knows. It gives her a second signal, a pattern she might have missed, the forty minutes she needs to act while the window is still open.</p>
+
+      <p class="narrative-p">She makes the call. She moves. The outcome is hers.</p>
+
+      <hr class="narrative-divider">
+
+      <div class="narrative-person">Maria Occaridou, 25.<br><em>Food scientist.</em></div>
+
+      <p class="narrative-p">Her work begins where Anastasia's ends, at the point where the olives leave the field and enter the mill. She monitors temperature before processing, watches the crusher during extraction, and tracks quality from the first press to the final bottle. The oil extraction takes between one and one and a half hours. The margin for error is small.</p>
+
+      <p class="narrative-quote">"It makes me proud when our oil receives awards. But also when people tell us it helped them with health issues."</p>
+
+      <p class="narrative-p">Maria's pride is specific. Her pride is in the chain of decisions, from the soil to the tree to the harvest to the extraction, being executed with enough care that the result is genuinely different from everything else on the shelf.</p>
+
+      <p class="narrative-p">This is what trust looks like at the production level. Every decision upstream has a consequence downstream. If Anastasia misread the pressure in October, Maria would see it in the quality in November. The work is connected. The accountability is total.</p>
+
+      <p class="narrative-p">ORTH lives in that chain. ORTH sits inside that chain making each decision slightly more informed, slightly more timely, slightly more confident. The grower still carries the weight. ORTH gives her better footing.</p>
+
+      <hr class="narrative-divider">
+
+      <div class="narrative-closing-label">What this means for<br><em>how we speak.</em></div>
+
+      <p class="narrative-p">Anastasia said something worth holding onto: sometimes agriculture feels like gambling. You think next year will be better, but something unexpected always happens. She said it with a smile. She is not defeated by uncertainty. She has learned to work inside it, to make her best decision with the information available, and to trust that the accumulation of good decisions over many seasons adds up to something.</p>
+
+      <p class="narrative-p">That is the relationship ORTH is trying to support. A grower who is already capable, already committed, already carrying knowledge that no algorithm fully captures, and who benefits from a tool that is honest about what it knows and what it doesn't.</p>
+
+      <p class="narrative-p">We do not write for people who need to be convinced that agriculture is important. We write for people who are already in the field before sunrise, already running the numbers, already making calls that nobody else will second-guess. They do not need inspiration. They need clarity.</p>
+
+      <p class="narrative-p">So we give them that. We name the crop, the region, the pressure, the window. We say what the data shows and where it is uncertain. We let the grower decide.</p>
+
+      <p class="narrative-p">And when we speak to the world about what ORTH is, we speak from this place. Not from a pitch. From a field where two young women help produce one of the most distinctive olive oils in the world, and where every good outcome traces back to a decision made on time, with the right information, by a person who knew what to do with it.</p>
+
+      <p class="narrative-p">That person is who we are building this for.</p>
+
+      <p class="narrative-p" style="color:rgba(255,255,255,0.40);">Every word we put into the world should be worthy of her attention.</p>
+
+    </div><!-- /body -->
+
+    <img class="narrative-img" src="https://raw.githubusercontent.com/ayditechnologies/orth-brand/main/S-Grounded_Olive_Farm_0029.jpg" alt="" style="margin-top: 32px; margin-bottom: 0;" />
+
+    </div><!-- /narrative-wrap -->
+</div>
+
+<!-- ═══ LOGO PAGE -->
+<div class="pg" id="pg-logo">
+
+  <!-- HERO -->
+  <div class="logo-hero">
+    <img class="logo-hero-lockup"
+         src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Mark%2BType-SonD.svg"
+         alt="ORTH" />
+    <div style="width:52%; margin-top: 80px; position: relative;">
+      <img src="https://raw.githubusercontent.com/ayditechnologies/orth/main/ORTH-BI-Logo-Const.svg"
+           alt=""
+           style="width:100%; display:block;
+                  filter: brightness(0.22) sepia(1) hue-rotate(82deg) saturate(1.8);
+                  mask-image: radial-gradient(ellipse 75% 70% at center, black 10%, transparent 78%);
+                  -webkit-mask-image: radial-gradient(ellipse 75% 70% at center, black 10%, transparent 78%);" />
+    </div>
+  </div>
+
+  <div class="logo-wrap">
+
+    <!-- ANATOMY -->
+    <div class="logo-section">
+      <div class="logo-section-label">Anatomy</div>
+      <div class="logo-anatomy">
+        <div>
+          <div class="logo-anatomy-item-name">Mark</div>
+          <p class="logo-anatomy-item-desc">Organic closed loop. Roughly circular outer arc with an inner negative space that pulls to a soft triangle, apex at upper center. Uniform stroke weight throughout. Reads as circle and vessel simultaneously.</p>
+        </div>
+        <div>
+          <div class="logo-anatomy-item-name">Wordmark</div>
+          <p class="logo-anatomy-item-desc">ORTH always all-caps. Geometric sans-serif. The O is a perfect circle, an intentional contrast with the organic mark. R, T, H carry rounded terminals with generous tracking.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARK VARIANTS -->
+    <div class="logo-section">
+      <div class="logo-section-label">Mark variants</div>
+      <div class="logo-mark-grid">
+
+        <div class="logo-mark-cell">
+          <div class="logo-mark-stage on-dark">
+            <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Logo-SageonDark.svg" alt="Green mark on dark" />
+          </div>
+          <div>
+            <div class="logo-mark-name">Green · Dark</div>
+            <div class="logo-mark-use">Primary brand mark. Use on ink-900 or darker backgrounds. Default for most digital contexts.</div>
+          </div>
+        </div>
+
+        <div class="logo-mark-cell">
+          <div class="logo-mark-stage on-light">
+            <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Logo-SageonLight.svg" alt="Green mark on light" />
+          </div>
+          <div>
+            <div class="logo-mark-name">Green · Light</div>
+            <div class="logo-mark-use">Sage mark on stone-50 or white. Requires transparent SVG for accurate light-background display.</div>
+          </div>
+        </div>
+
+        <div class="logo-mark-cell">
+          <div class="logo-mark-stage on-dark">
+            <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Logo-WhiteonDark.svg" alt="White mark on dark" />
+          </div>
+          <div>
+            <div class="logo-mark-name">White · Dark</div>
+            <div class="logo-mark-use">When Sage lacks sufficient contrast: deep UI surfaces, dark photography, video overlays.</div>
+          </div>
+        </div>
+
+        <div class="logo-mark-cell">
+          <div class="logo-mark-stage on-light">
+            <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Logo-BlackonLight.svg" alt="Charcoal mark on light" />
+          </div>
+          <div>
+            <div class="logo-mark-name">Charcoal · Light</div>
+            <div class="logo-mark-use">Near-black on white or near-white. Use when Sage mark lacks contrast on light backgrounds.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="logo-download-btn" onclick="downloadZip('marks')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Download mark variants</button>
+
+    </div>
+
+    <!-- LOCKUP VARIANTS -->
+    <div class="logo-section">
+      <div class="logo-section-label">Lockup variants</div>
+      <div class="logo-lockup-grid">
+
+        <div class="logo-lockup-cell">
+          <div class="logo-lockup-stage on-dark">
+            <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Mark%2BType-SonD.svg" alt="Green white dark lockup" />
+          </div>
+          <div>
+            <div class="logo-lockup-name">Green · White · Dark</div>
+            <div class="logo-lockup-use">Primary brand expression on dark. Default for marketing, social, App Store, and all public-facing dark contexts.</div>
+          </div>
+        </div>
+
+        <div class="logo-lockup-cell">
+          <div class="logo-lockup-stage on-light">
+            <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Mark%2BType-SonL.svg" alt="Green charcoal light lockup" />
+          </div>
+          <div>
+            <div class="logo-lockup-name">Green · Charcoal · Light</div>
+            <div class="logo-lockup-use">Primary brand expression on light. For partner documents, light-mode UI, and printed collateral.</div>
+          </div>
+        </div>
+
+        <div class="logo-lockup-cell">
+          <div class="logo-lockup-stage on-dark">
+            <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Mark%2BType-WonD.svg" alt="White lockup dark" />
+          </div>
+          <div>
+            <div class="logo-lockup-name">White · Dark</div>
+            <div class="logo-lockup-use">Mark and wordmark both white. For dark contexts where brand color is unavailable: presentations, video, dark-mode headers.</div>
+          </div>
+        </div>
+
+        <div class="logo-lockup-cell">
+          <div class="logo-lockup-stage on-light">
+            <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Mark%2BType-BonL.svg" alt="Charcoal lockup light" />
+          </div>
+          <div>
+            <div class="logo-lockup-name">Charcoal · Light</div>
+            <div class="logo-lockup-use">Mark and wordmark both charcoal. For light contexts where monochrome is required: documents, print, white-background digital.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="logo-download-btn" onclick="downloadZip('lockups')"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Download lockup variants</button>
+
+    </div>
+
+    <!-- CLEAR SPACE -->
+    <div class="logo-section">
+      <div class="logo-section-label">Clear space</div>
+      <div class="logo-rules-col">
+        <div class="logo-rule-row">
+          <span class="logo-rule-key">Mark only</span>
+          <span class="logo-rule-val">Minimum clear space on all sides equal to the full height of the mark. No type, logos, imagery, or UI elements may enter this zone.</span>
+        </div>
+        <div class="logo-rule-row">
+          <span class="logo-rule-key">Full lockup</span>
+          <span class="logo-rule-val">Minimum clear space equal to the cap-height of the wordmark on all sides. All elements of the lockup sit within this boundary.</span>
+        </div>
+        <div class="logo-rule-row">
+          <span class="logo-rule-key">Minimum · Mark</span>
+          <span class="logo-rule-val">24px minimum height. Below this the stroke weight loses legibility at screen resolution.</span>
+        </div>
+        <div class="logo-rule-row">
+          <span class="logo-rule-key">Minimum · Lockup</span>
+          <span class="logo-rule-val">32px wordmark cap-height minimum. Below this the tracking collapses and the lockup loses legibility.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- USAGE RULES -->
+    <div class="logo-section">
+      <div class="logo-section-label">Usage rules</div>
+      <div class="logo-usage-grid">
+
+        <div>
+          <div class="logo-usage-col-head">Permitted</div>
+          <div class="logo-usage-list">
+            <div class="logo-usage-item"><span class="logo-usage-text">Use any of the four approved variants on their specified background type.</span><span class="logo-usage-icon ok"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="logo-usage-item"><span class="logo-usage-text">Scale uniformly from any corner. Proportions are locked.</span><span class="logo-usage-icon ok"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="logo-usage-item"><span class="logo-usage-text">Place on solid backgrounds: ink-950 through ink-800 for dark variants; stone-50 and white for light variants.</span><span class="logo-usage-icon ok"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="logo-usage-item"><span class="logo-usage-text">Place on photography when contrast is guaranteed and clear space is maintained.</span><span class="logo-usage-icon ok"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="logo-usage-item"><span class="logo-usage-text">Use the mark alone (without wordmark) in established contexts: app icon, favicon, social avatar.</span><span class="logo-usage-icon ok"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="8,22 17,31 36,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="logo-usage-col-head">Prohibited</div>
+          <div class="logo-usage-list">
+            <div class="logo-usage-item"><span class="logo-usage-text">Do not recolor the mark outside the four approved variants.</span><span class="logo-usage-icon no"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="logo-usage-item"><span class="logo-usage-text">Do not stretch, skew, rotate, or distort the mark or lockup.</span><span class="logo-usage-icon no"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="logo-usage-item"><span class="logo-usage-text">Do not add drop shadows, glows, gradients, or outlines.</span><span class="logo-usage-icon no"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="logo-usage-item"><span class="logo-usage-text">Do not place a dark-background variant on a light background, or vice versa.</span><span class="logo-usage-icon no"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="logo-usage-item"><span class="logo-usage-text">Do not recreate the wordmark in any typeface. Use approved SVG files only.</span><span class="logo-usage-icon no"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="logo-usage-item"><span class="logo-usage-text">Do not place the logo on mid-tone surfaces, busy photography, or backgrounds that reduce contrast below legibility.</span><span class="logo-usage-icon no"><svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="12" x2="32" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="32" y1="12" x2="12" y2="32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ UI PAGE -->
+<div class="pg" id="pg-interface">
+  <div class="pg-placeholder">
+    <div class="pg-placeholder-inner">
+      <div class="pg-placeholder-title"><em>Interface</em> assets<br>are not ready yet.</div>
+      <p class="pg-placeholder-sub">Refer to the brand team for specifics about interface and screen design patterns.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COMPOSITION PAGE -->
+<div class="pg" id="pg-composition">
+  <div class="comp-wrap">
+
+    <div class="comp-hero">
+      <h1>How it all<br>comes <em>together.</em></h1>
+      <p class="comp-hero-sub">How the ORTH visual system works across brand, social, and digital surfaces. These compositions are the reference for format, layout, and the relationship between type, image, and space.</p>
+    </div>
+
+    <div class="comp-section-label">Brand compositions</div>
+    <div class="comp-section-intro">
+      <div class="comp-section-heading">Visual language<br>at its most <em>controlled.</em></div>
+      <p class="comp-section-desc">The core compositions show the visual language at its most controlled. Each one is built on the same principles, but no two feel identical. Proportion, crop, and type placement shift deliberately from frame to frame.</p>
+    </div>
+    <div class="comp-blocks" id="comp-brand-grid"></div>
+
+    <div class="comp-section-label">Social formats</div>
+    <div class="comp-section-intro">
+      <div class="comp-section-heading">The system<br>at <em>scale.</em></div>
+      <p class="comp-section-desc">Square and vertical formats for social channels. The constraints are tighter: less space, more direct. The same rules apply: type at an edge, mark in place, photography as context.</p>
+    </div>
+    <div class="comp-social" id="comp-social-grid"></div>
+
+    <div class="comp-section-label">Field and event</div>
+    <div class="comp-section-intro">
+      <div class="comp-section-heading">ORTH in the<br><em>world.</em></div>
+      <p class="comp-section-desc">Applied compositions from real contexts. Not studio-controlled. These show how the visual system holds under field conditions, in motion, in real light.</p>
+    </div>
+    <div class="comp-field" id="comp-field-grid"></div>
+
+  </div>
+</div>
+
+
+<!-- ═══ IMAGERY PAGE -->
+<div class="pg" id="pg-imagery">
+  <div class="pg-placeholder">
+    <div class="pg-placeholder-inner">
+      <div class="pg-placeholder-title"><em>Imagery</em> assets<br>are not ready yet.</div>
+      <p class="pg-placeholder-sub">Refer to the brand team for specifics about photography direction and sourcing.</p>
+    </div>
+  </div>
+</div>
+</div><!-- /page -->
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/ORTH%20Mark%2BType-SonD.svg" height="84" alt="ORTH" style="position:relative; top:-20px; left:-20px;" />
+      </div>
+      <div>
+        <div class="footer-col-head">Identity</div>
+        <ul class="footer-links">
+          <li><span data-page="narrative">Narrative</span></li>
+    <li><span data-page="logo">Logo</span></li>
+          <li><span data-page="color">Color</span></li>
+          <li><span data-page="type">Type</span></li>
+          <li><span data-page="composition">Composition</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-head">Expression</div>
+        <ul class="footer-links">
+          <li><span data-page="imagery">Imagery</span></li>
+          <li><span data-page="interface">Interface</span></li>
+          <li><span data-page="tone">Tone</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-head">Company</div>
+        <ul class="footer-links">
+          <li><span style="cursor:pointer;color:inherit">Aydi Technologies</span></li>
+          <li><span style="cursor:pointer;color:inherit">ORTH Product</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aydi Technologies. All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+  /* ── COMPOSITION PAGE — DYNAMIC LOAD ── */
+  const COMP_API = 'https://api.github.com/repos/ayditechnologies/orth-composition/contents';
+  const COMP_RAW = 'https://raw.githubusercontent.com/ayditechnologies/orth-composition/main/';
+
+  async function loadCompositions() {
+    const brandGrid  = document.getElementById('comp-brand-grid');
+    const socialGrid = document.getElementById('comp-social-grid');
+    const fieldGrid  = document.getElementById('comp-field-grid');
+    if (!brandGrid) return;
+
+    try {
+      const res   = await fetch('https://api.github.com/repos/ayditechnologies/orth-composition/contents');
+      const files = await res.json();
+      const RAW   = 'https://raw.githubusercontent.com/ayditechnologies/orth-composition/main/';
+
+      // Deduplicate by SHA — exclude files whose content is identical to another already included
+      const seen = new Set();
+      const comp = files.filter(f => {
+        if (!(f.name.startsWith('ORTH Comp-') || f.name.startsWith('ORTH-Comp-')) || !f.name.endsWith('.jpg')) return false;
+        if (seen.has(f.sha)) return false;
+        seen.add(f.sha);
+        return true;
+      });
+      const social = files.filter(f => f.name.includes('New-Languages-IG') && f.name.endsWith('.jpg')).sort((a,b) => a.name.localeCompare(b.name));
+      const field  = files.filter(f => f.name.endsWith('.jpg') && !f.name.startsWith('ORTH Comp-') && !f.name.startsWith('ORTH-Comp-') && !f.name.includes('New-Languages-IG') && f.name !== 'AgroFest.jpg').sort((a,b) => a.name.localeCompare(b.name));
+
+      const shuffled = [...comp].sort(() => Math.random() - 0.5);
+
+      const principles = [
+        { num: '01', title: 'Type and image in dialogue.', desc: 'Typography and photography work together, neither dominates. How they relate within the frame is where the composition lives.' },
+        { num: '02', title: 'Photography as foundation.', desc: 'The image carries the scene. Field environments, real contexts, human work. Photography grounds the brand in something tangible.' },
+        { num: '03', title: 'Space carries meaning.', desc: 'What surrounds the subject matters as much as the subject itself. Space is a design decision, not a leftover.' },
+        { num: '04', title: 'The mark belongs to the whole.', desc: 'The ORTH mark is part of the composition, not placed on top of it. Its position, size, and weight should feel considered.' },
+        { num: '05', title: 'Legibility under any condition.', desc: 'A composition should hold up when cropped, resized, or shown in isolation. Clarity is the baseline.' },
+        { num: '06', title: 'A system that holds.', desc: 'Individual compositions vary in layout, scale, and tone. What connects them is a shared visual logic: consistent enough to be recognizable, flexible enough to feel alive.' },
+      ];
+
+      // Build a mixed queue: images + principle cards
+      // Insert a principle card after every ~3 images
+      const queue = [];
+      let pi = 0;
+      for (let i = 0; i < shuffled.length; i++) {
+        queue.push({ type: 'img', file: shuffled[i] });
+        if ((i + 1) % 3 === 0 && pi < principles.length) {
+          queue.push({ type: 'principle', data: principles[pi++] });
+        }
+      }
+      // Add remaining principles at the end
+      while (pi < principles.length) {
+        queue.push({ type: 'principle', data: principles[pi++] });
+      }
+
+      const LAYOUTS = [
+        { cols: 'cols-half',  mb: 'mb-tight' },
+        { cols: 'cols-asymL', mb: 'mb-spacious' },
+        { cols: 'cols-three', mb: 'mb-tight' },
+        { cols: 'cols-half',  mb: 'mb-spacious' },
+        { cols: 'cols-asymR', mb: 'mb-tight' },
+        { cols: 'cols-three', mb: 'mb-normal' },
+        { cols: 'cols-half',  mb: 'mb-tight' },
+        { cols: 'cols-asymL', mb: 'mb-normal' },
+        { cols: 'cols-three', mb: 'mb-spacious' },
+        { cols: 'cols-asymR', mb: 'mb-tight' },
+        { cols: 'cols-half',  mb: 'mb-normal' },
+      ];
+
+      const NCOLS = { 'cols-half':2, 'cols-asymL':2, 'cols-asymR':2, 'cols-three':3 };
+
+      brandGrid.innerHTML = '';
+      let qi = 0, li = 0;
+
+      while (qi < queue.length) {
+        const layout = LAYOUTS[li % LAYOUTS.length];
+        const n      = NCOLS[layout.cols];
+        const batch  = queue.slice(qi, qi + n);
+        if (!batch.length) break;
+
+        const block = document.createElement('div');
+        block.className = 'comp-block ' + layout.cols + ' ' + layout.mb;
+
+        batch.forEach(item => {
+          if (item.type === 'img') {
+            const img = document.createElement('img');
+            img.src = RAW + encodeURIComponent(item.file.name);
+            img.alt = ''; img.loading = 'lazy';
+            block.appendChild(img);
+          } else {
+            const card = document.createElement('div');
+            card.className = 'comp-principle-card';
+            const text = document.createElement('div');
+            text.className = 'comp-principle-text';
+            const num = document.createElement('span');
+            num.className = 'comp-principle-num';
+            num.textContent = item.data.num;
+            const title = document.createElement('div');
+            title.className = 'comp-principle-title';
+            title.textContent = item.data.title;
+            const desc = document.createElement('p');
+            desc.className = 'comp-principle-desc';
+            desc.textContent = item.data.desc;
+            text.appendChild(num);
+            text.appendChild(title);
+            text.appendChild(desc);
+            card.appendChild(text);
+            block.appendChild(card);
+          }
+        });
+
+        brandGrid.appendChild(block);
+        qi += batch.length;
+        li++;
+      }
+
+      // Social
+      if (socialGrid) {
+        socialGrid.innerHTML = '';
+        social.forEach(f => {
+          const img = document.createElement('img');
+          img.src = RAW + encodeURIComponent(f.name);
+          img.alt = ''; img.loading = 'lazy';
+          socialGrid.appendChild(img);
+        });
+      }
+
+      // Field
+      if (fieldGrid) {
+        fieldGrid.innerHTML = '';
+        field.forEach(f => {
+          const img = document.createElement('img');
+          img.src = RAW + encodeURIComponent(f.name);
+          img.alt = ''; img.loading = 'lazy';
+          fieldGrid.appendChild(img);
+        });
+      }
+
+    } catch(e) {
+      console.warn('Could not load compositions:', e);
+    }
+  }
+
+
+  function goTo(page) {
+    document.querySelectorAll('.pg').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('pg-' + page);
+    if (target) { target.classList.add('active'); window.scrollTo(0, 0); }
+    document.querySelectorAll('.nav-links span').forEach(a => {
+      a.classList.toggle('active', a.dataset.page === page);
+    });
+    if (page === 'composition') loadCompositions();
+  }
+
+  // Nav links
+  document.querySelectorAll('[data-page]').forEach(el => {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      goTo(el.dataset.page);
+    });
+  });
+
+  // Start on Brand home
+
+  async function downloadZip(type) {
+    var btn = event.currentTarget;
+    btn.classList.add('loading');
+    btn.textContent = 'Preparing download...';
+
+    var base = 'https://raw.githubusercontent.com/ayditechnologies/orth/ORTH-Logo/';
+    var files = type === 'marks' ? [
+      { name: 'ORTH Logo-SageonDark.svg',   url: base + 'ORTH%20Logo-SageonDark.svg' },
+      { name: 'ORTH Logo-SageonLight.svg',  url: base + 'ORTH%20Logo-SageonLight.svg' },
+      { name: 'ORTH Logo-WhiteonDark.svg',  url: base + 'ORTH%20Logo-WhiteonDark.svg' },
+      { name: 'ORTH Logo-BlackonLight.svg', url: base + 'ORTH%20Logo-BlackonLight.svg' },
+    ] : [
+      { name: 'ORTH Mark+Type-SonD.svg', url: base + 'ORTH%20Mark%2BType-SonD.svg' },
+      { name: 'ORTH Mark+Type-SonL.svg', url: base + 'ORTH%20Mark%2BType-SonL.svg' },
+      { name: 'ORTH Mark+Type-WonD.svg', url: base + 'ORTH%20Mark%2BType-WonD.svg' },
+      { name: 'ORTH Mark+Type-BonL.svg', url: base + 'ORTH%20Mark%2BType-BonL.svg' },
+    ];
+
+    try {
+      var zip = new JSZip();
+      await Promise.all(files.map(async function(f) {
+        var res = await fetch(f.url);
+        var blob = await res.blob();
+        zip.file(f.name, blob);
+      }));
+      var blob = await zip.generateAsync({ type: 'blob' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = type === 'marks' ? 'ORTH-Mark-Variants.zip' : 'ORTH-Lockup-Variants.zip';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    } catch(e) {
+      console.warn('Download failed:', e);
+    }
+
+    btn.classList.remove('loading');
+    btn.innerHTML = type === 'marks'
+      ? '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Download mark variants'
+      : '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Download lockup variants';
+  }
+
+  goTo('brand');
+
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+</script>
+
+</body>
+</html>
